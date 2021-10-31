@@ -1,5 +1,7 @@
 const dbConn = require('./database');
+const commonResponse = require('./response');
 
 module.exports = {
-	dbConn
+	dbConn,
+	commonResponse
 };

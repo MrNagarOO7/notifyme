@@ -5,6 +5,9 @@ const winston = require('winston');
 const cors = require('cors');
 
 
+// App Configuration Module
+require('dotenv').config(); //Access .env File
+
 global.logger = winston.createLogger({
 	level: 'info',
 	format: winston.format.combine(
@@ -30,11 +33,9 @@ global.logger = winston.createLogger({
 	]
 
 });
-
-// App Configuration Module
 const config = require('./config');
 const routes = require('./routes');
-const { dbConn } = require('./helpers')
+const { dbConn } = require('./helpers');
 const app = express();
 
 // Middleware

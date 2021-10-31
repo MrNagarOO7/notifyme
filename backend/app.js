@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const noCache = require('nocache');
 const helmet = require('helmet');
 const winston = require('winston');
@@ -35,16 +34,18 @@ global.logger = winston.createLogger({
 // App Configuration Module
 const config = require('./config');
 const routes = require('./routes');
+const { dbConn } = require('./helpers')
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(noCache());
 app.use(helmet());
-app.use(bodyParser.json({ limit: '5mb' }));
-app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }));
+app.use(express.json({ limit: '5mb' }));
+app.use(express.urlencoded({ extended: true, limit: '5mb' }));
 
 routes.initialize(app);
+dbConn.getSqlConnection(config.database);
 let listingPort = config.server.port;
 
 const server = app.listen(listingPort,() => {

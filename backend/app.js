@@ -46,7 +46,8 @@ app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true, limit: '5mb' }));
 
 routes.initialize(app);
-dbConn.getSqlConnection(config.database);
+global.sqConn = dbConn.getSqlConnection(config.database);
+
 let listingPort = config.server.port;
 
 const server = app.listen(listingPort,() => {

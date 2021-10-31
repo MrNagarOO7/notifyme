@@ -22,6 +22,7 @@ exports.getSqlConnection = (config) => {
     seqInstance = {
         Sequelize: Sequelize,
         seqInstance: seqInstance,
+        Notification: seqInstance.import('../api/notifications/notifications.model')
     };
     return seqInstance;
 };

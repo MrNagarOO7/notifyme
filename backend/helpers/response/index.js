@@ -3,6 +3,18 @@ const getMessage = (code, defaultCode) =>  {
     return messageFile[code] ? messageFile[code] : messageFile[defaultCode];
 };
 
+exports.keyAlreadyExist = (res, err, code = '', statusCode = 409) => {
+    const resData = {
+        success: false,
+        statusCode: statusCode,
+        message: getMessage(code, 'DEFAULT'),
+        data: {},
+        error: err,
+        messageCode: code
+    };
+    return res.status(statusCode).send(resData);
+};
+
 exports.success = (res, data, code = '', statusCode = 200) => {
     const resData = {
         success: true,

@@ -1,0 +1,57 @@
+$primary-color:  #2ECBB5;
+
+.header {
+  height: 45px;
+  border-bottom: 1px solid $primary-color;
+  padding: 2px;
+  .left-side {
+    float: left;
+    .app-logo {
+      width: 170px;
+      height: 40px;
+      margin-left: 10px;
+    }
+  }
+  .right-side {
+    padding: 10px;
+    float: right;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+
+    img{
+      width: 20px;
+      height: 20px;
+    }
+    button {
+      margin-left: 20px;
+      color: white;
+      background-color: $primary-color;
+      border-radius: 2px;
+      border: 1px solid white;
+      padding: 3px;
+      float: inherit;
+    }
+    .notification-list {
+      border: 1px solid $primary-color;
+      font-family: 'montserratregular';
+      background-color: white;
+      text-align: left;
+      font-size: 10px;
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow-y: auto;
+        max-height: 250px;
+        li {
+          padding: 4px;
+          border-bottom: 1px solid $primary-color;
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

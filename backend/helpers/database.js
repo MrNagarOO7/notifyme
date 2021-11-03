@@ -1,7 +1,10 @@
 const Sequelize = require('sequelize');
 
 // sequelize connect
-exports.getSqlConnection = (config) => {
+exports.getSqlConnection = () => {
+    const globalConfig = require('../config');
+    const config = globalConfig.database;
+
     let seqInstance = new Sequelize(config.database, config.username, config.password, {
         host: config.host,
         port: config.port,
@@ -19,10 +22,6 @@ exports.getSqlConnection = (config) => {
             throw error;
         });
 
-    seqInstance = {
-        Sequelize: Sequelize,
-        seqInstance: seqInstance,
-        Notification: seqInstance.import('../api/notifications/notifications.model')
-    };
+
     return seqInstance;
 };

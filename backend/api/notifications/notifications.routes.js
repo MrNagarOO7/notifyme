@@ -5,3 +5,5 @@ router.post(
 	'/',
 	controller.addNotification
 );
+
+module.exports = router;

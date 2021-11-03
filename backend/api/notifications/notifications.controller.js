@@ -10,7 +10,7 @@ exports.addNotification = async (req, res) => {
 		}
 		return commonResponse.keyAlreadyExist(res, {}, data.message);
 	} catch (error) {
-		logger.error("Error userSignUp ==>", error);
+		logger.error("Error addNotification ==>", error);
 		return commonResponse.sendUnexpected(res, error);
 	}
 };

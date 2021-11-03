@@ -66,7 +66,21 @@ const listNotifications =  async () =>  {
     });
 };
 
+/**
+ * Delete All Notification Data
+ */
+
+const deleteNotifications =  async () =>  {
+    return await Notification.destroy({truncate: true})
+    .then((data) => {
+        return data;})
+    .catch((err) => {
+        throw err;
+    });
+};
+
 module.exports = {
     createNotification,
-    listNotifications
+    listNotifications,
+    deleteNotifications
 };

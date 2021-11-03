@@ -35,7 +35,7 @@ global.logger = winston.createLogger({
 });
 const config = require('./config');
 const routes = require('./routes');
-const { dbConn } = require('./helpers');
+const { socket } = require('./helpers');
 const app = express();
 
 // Middleware
@@ -53,3 +53,5 @@ const server = app.listen(listingPort,() => {
 	logger.info(`Server Listening on ${listingPort}`);
 	console.log(`Server Listening on ${listingPort}`);
 });
+
+socket.init(server);

@@ -15,3 +15,8 @@ exports.listNotification = async () => {
         return { success: true, data: notificationInfo, message: 'LIST_NOTIFICATION' };
     }
 };
+
+exports.removeAllNotification = async () => {
+	const notificationInfo = await Notification.deleteNotifications();
+	return { success: true, data: [], message: 'DELETE_NOTIFICATION' };
+};

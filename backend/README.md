@@ -1,5 +1,5 @@
-# NotifyMe Frontend
-It's GUI part of NotifyMe Application.
+# NotifyMe Backend
+It's server part of NotifyMe Application.
 ## Description
 We can notify ourself for event and any reminder.
 ## Getting Started
@@ -14,13 +14,17 @@ We can notify ourself for event and any reminder.
 ```
 npm install
 ```
-* Run Script
+* Run Script to start
 ```
 npm start
 ```
+* Run Monitor Script
+```
+npx nodemon app.js
+```
 
 ## Authors
-Yash Nagar  
+ Yash Nagar  
 
 ## Version History
 
